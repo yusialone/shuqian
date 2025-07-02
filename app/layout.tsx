@@ -13,6 +13,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="zh-CN" suppressHydrationWarning>
+      <head>
+        <meta name="referrer" content="unsafe-url" />
+      </head>
       <body className="bg-background text-foreground min-h-screen">
         {children}
       </body>

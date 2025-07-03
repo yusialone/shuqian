@@ -83,7 +83,7 @@ export default function BookmarkPage() {
   useEffect(() => {
     setLoading(true)
     setError(null)
-    fetch('http://107.174.196.150:3001/api/bookmarks')
+    fetch('https://nezha1.yusi1.dpdns.org/api/bookmarks')
       .then(res => res.json())
       .then(data => setBookmarks(data))
       .catch(e => setError('加载书签失败'))
@@ -100,7 +100,7 @@ export default function BookmarkPage() {
         ...newBookmark,
       }
       try {
-        const res = await fetch('http://107.174.196.150:3001/api/bookmarks', {
+        const res = await fetch('https://nezha1.yusi1.dpdns.org/api/bookmarks', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(bookmark),
@@ -122,7 +122,7 @@ export default function BookmarkPage() {
     setLoading(true)
     setError(null)
     try {
-      const res = await fetch(`http://107.174.196.150:3001/api/bookmarks/${id}`, { method: 'DELETE' })
+      const res = await fetch(`https://nezha1.yusi1.dpdns.org/api/bookmarks/${id}`, { method: 'DELETE' })
       if (!res.ok) throw new Error('删除失败')
       setBookmarks(prev => prev.filter((bookmark) => bookmark.id !== id))
     } catch (e) {
@@ -138,7 +138,7 @@ export default function BookmarkPage() {
     setLoading(true)
     setError(null)
     try {
-      const res = await fetch(`http://107.174.196.150:3001/api/bookmarks/${editingBookmark.id}`, {
+      const res = await fetch(`https://nezha1.yusi1.dpdns.org/api/bookmarks/${editingBookmark.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...editForm }),
